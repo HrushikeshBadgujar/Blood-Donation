@@ -17,10 +17,10 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class MainActivity extends AppCompatActivity {
 
-    /*TextView fullName, email;
+    TextView fullName, email;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    String userID;*/
+    String userID;
 
 
     @Override
