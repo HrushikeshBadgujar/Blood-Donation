@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Blood Donation</string>
+    <string name="title_activity_home">Home</string>
+    <string name="tab_text_1">Chats</string>
+    <string name="tab_text_2">Status</string>
+    <string name="tab_text_3">Calls</string>
 </resources>
