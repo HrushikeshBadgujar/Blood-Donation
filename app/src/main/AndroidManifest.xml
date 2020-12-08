@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBrZDrA0UbvutwtMhjwAx3MS-X4yUawJzQ" />
+
+
+
+
         <activity android:name=".Add_Donor"></activity>
         <activity android:name=".Add_Receiver" />
         <activity android:name=".Login" />
@@ -23,5 +34,10 @@
         </activity>
         <activity android:name=".MainActivity" />
     </application>
+
+
+
+
+
 
 </manifest>
