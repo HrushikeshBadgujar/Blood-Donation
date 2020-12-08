@@ -34,9 +34,8 @@ public class Fragment1 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
         View view = inflater.inflate(R.layout.fragment1_layout,container,false);
-       return view;
+        return view;
 
     }
 
@@ -51,7 +50,7 @@ public class Fragment1 extends Fragment {
 
 
         // Query
-        Query query = FirebaseFirestore.getInstance().collection("Demo");
+        Query query = FirebaseFirestore.getInstance().collection("Receiver");
 
 
         // Recycler Option
@@ -75,8 +74,12 @@ public class Fragment1 extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull ReceiverViewHolder holder, int i, @NonNull DemoModel demoModel) {
 
-                holder.list_city.setText(demoModel.getCity());
-                holder.list_name.setText(demoModel.getName());
+                holder.list_name.setText(" Name : "+demoModel.getFull_Name());
+                holder.list_blood.setText(" Blood : "+demoModel.getBlood_Grp());
+                holder.list_phone.setText(demoModel.getPhone());
+                holder.list_reason.setText(" Reason : "+demoModel.getReason());
+                holder.list_city.setText(" City : "+demoModel.getCity());
+                holder.list_locality.setText(" Locality : "+demoModel.getLocality());
             }
         };
 
@@ -92,13 +95,21 @@ public class Fragment1 extends Fragment {
     public class ReceiverViewHolder extends RecyclerView.ViewHolder{
 
         public TextView list_name;
+        public TextView list_blood;
+        public TextView list_phone;
+        public TextView list_reason;
         public TextView list_city;
+        public TextView list_locality;
 
         public ReceiverViewHolder(@NonNull View itemView) {
             super(itemView);
 
             list_name = itemView.findViewById(R.id.r_list_name);
+            list_blood = itemView.findViewById(R.id.r_list_blood_grp);
+            list_phone = itemView.findViewById(R.id.r_list_phone_no);
+            list_reason = itemView.findViewById(R.id.r_list_reason);
             list_city = itemView.findViewById(R.id.r_list_city);
+            list_locality = itemView.findViewById(R.id.r_list_locality);
 
         }
     }

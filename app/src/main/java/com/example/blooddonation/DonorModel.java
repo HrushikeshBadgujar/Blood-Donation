@@ -1,22 +1,27 @@
 package com.example.blooddonation;
 
-public class DemoModel {
+public class DonorModel {
 
+    String Age, Blood_Grp, City, Full_Name, Locality, Phone;
 
-     /*String City, Name ;*/
-
-     String Blood_Grp, City, Full_Name, Locality, Phone, Reason ;
-
-    public DemoModel() {
+    public DonorModel() {
     }
 
-    public DemoModel(String blood_Grp, String city, String full_Name, String locality, String phone, String reason) {
+    public DonorModel(String age, String blood_Grp, String city, String full_Name, String locality, String phone) {
+        Age = age;
         Blood_Grp = blood_Grp;
         City = city;
         Full_Name = full_Name;
         Locality = locality;
         Phone = phone;
-        Reason = reason;
+    }
+
+    public String getAge() {
+        return Age;
+    }
+
+    public void setAge(String age) {
+        Age = age;
     }
 
     public String getBlood_Grp() {
@@ -59,36 +64,5 @@ public class DemoModel {
         Phone = phone;
     }
 
-    public String getReason() {
-        return Reason;
-    }
 
-    public void setReason(String reason) {
-        Reason = reason;
-    }
-
-/*public DemoModel() {
-    }
-
-    public DemoModel(String city, String name) {
-        City = city;
-        Name = name;
-    }
-
-
-    public String getCity() {
-        return City;
-    }
-
-    public void setCity(String city) {
-        City = city;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }*/
 }

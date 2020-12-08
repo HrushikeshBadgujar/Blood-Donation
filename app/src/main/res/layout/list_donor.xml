@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:gravity="top"
-    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content"
+    android:gravity="top">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -26,12 +24,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
             android:gravity="top"
             android:orientation="vertical"
             tools:context=".CreateProfile">
 
             <TextView
-                android:id="@+id/r_list_name"
+                android:id="@+id/d_list_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -47,7 +46,7 @@
                 android:gravity="left">
 
                 <TextView
-                    android:id="@+id/r_list_blood_grp"
+                    android:id="@+id/d_list_blood_grp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
@@ -58,11 +57,11 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/r_list_phone_no"
+                    android:id="@+id/d_list_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_baseline_call_24"
-                    android:hint="Phone"
+                    android:drawableLeft="@drawable/ic_baseline_person_24"
+                    android:hint="Age"
                     android:paddingLeft="10dp"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
@@ -71,18 +70,18 @@
 
 
             <TextView
-                android:id="@+id/r_list_reason"
+                android:id="@+id/d_list_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_baseline_email_24"
-                android:hint="Reason for Blood Request"
+                android:drawableLeft="@drawable/ic_baseline_call_24"
+                android:hint="Phone No"
                 android:paddingLeft="10dp"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
 
             <TextView
-                android:id="@+id/r_list_city"
+                android:id="@+id/d_list_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_location_city_24"
@@ -92,7 +91,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/r_list_locality"
+                android:id="@+id/d_list_locality"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -101,7 +100,6 @@
                 android:paddingLeft="10dp"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
-
 
         </LinearLayout>
 

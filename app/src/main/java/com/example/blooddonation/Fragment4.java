@@ -3,18 +3,22 @@ package com.example.blooddonation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,11 +30,10 @@ public class Fragment4 extends Fragment {
 
     ImageView imageView;
     TextView full_name, email, phone, blood_grp, city;
-    DocumentReference reference;
+    DocumentReference reference, reference_reference, donor_reference;
     FirebaseFirestore firestore;
     FirebaseAuth fAuth;
-    Button logout;
-
+    Button logout, deleteReceiver, deleteDonor;
 
 
     @Nullable
@@ -54,8 +57,13 @@ public class Fragment4 extends Fragment {
         phone = getActivity().findViewById(R.id.phone_no);
         city = getActivity().findViewById(R.id.city);
         blood_grp = getActivity().findViewById(R.id.blood_grp);
+
         logout = getActivity().findViewById(R.id.logoutBtn);
+        deleteReceiver = getActivity().findViewById(R.id.delete_receiver);
+        deleteDonor = getActivity().findViewById(R.id.delete_donor);
+
         fAuth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
 
 
     }
@@ -66,9 +74,9 @@ public class Fragment4 extends Fragment {
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String userId = user.getUid();
+        final String userId = user.getUid();
         final String Email = user.getEmail();
-        firestore = FirebaseFirestore.getInstance();
+
 
         reference = firestore.collection("Users").document(userId);
 
@@ -96,13 +104,60 @@ public class Fragment4 extends Fragment {
                         }else {
 
                         }
-
-
                     }
                 });
 
 
 
+        // Delete Receiver Button
+        deleteReceiver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                FirebaseFirestore.getInstance().collection("Receiver").document(userId).delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(getContext(), "Receiver Request Deleted Successfully ! ", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getContext(), "Error ! "+e, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+            }
+        });
+
+
+
+        // Delete Donor Button
+        deleteDonor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                FirebaseFirestore.getInstance().collection("Donor").document(userId).delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(getContext(), "Donor Request Deleted Successfully ! ", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getContext(), "Error ! "+e, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+            }
+        });
+
+
+
+        // Logout Button
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
