@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:fontFamily="@font/alegreya_sc_bold"
             android:gravity="center_horizontal"
             android:text="Become Blood Donor"
             android:textAlignment="center"

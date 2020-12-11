@@ -11,7 +11,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/walpaper"
         android:gravity="center"
         android:orientation="vertical"
         tools:context=".CreateProfile">
@@ -25,7 +24,7 @@
             android:text="Your Profile"
             android:textAlignment="center"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="30sp" />
+            android:textSize="36sp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="100dp"
